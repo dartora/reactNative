@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {NavigationScreen} from '../../@types/navigation.types';
-import {Header} from '../../components/Header';
-import {Button} from '../../components/Button';
-import {useCart} from '../../context/Cart';
+import React, { useState } from 'react';
+import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationScreen } from '../../@types/navigation.types';
+import { Header } from '../../components/Header';
+import { Button } from '../../components/Button';
+import { useCart } from '../../context/Cart';
 
 const dataMock = [
   {
@@ -21,16 +21,16 @@ type CartDataTypes = {
   name: string;
 };
 
-export const Cart = ({navigation}: NavigationScreen) => {
-  const {data, setData} = useCart();
+export const Cart = ({ navigation }: NavigationScreen) => {
+  const { data, setData } = useCart();
 
   return (
-    <View style={{backgroundColor: 'white', flex: 1}}>
+    <View style={{ backgroundColor: 'white', flex: 1 }}>
       <Header onPress={() => navigation.goBack()} />
       <FlatList
         data={dataMock}
-        contentContainerStyle={{justifyContent: 'center', alignItems: 'center'}}
-        renderItem={({item}) => {
+        contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}
+        renderItem={({ item }) => {
           return (
             <TouchableOpacity
               onPress={() => setData([...data, item])}
@@ -40,7 +40,7 @@ export const Cart = ({navigation}: NavigationScreen) => {
                 backgroundColor: 'black',
                 marginBottom: 20,
               }}>
-              <Text style={{color: 'white'}}>{item.name}</Text>
+              <Text style={{ color: 'white' }}>{item.name}</Text>
             </TouchableOpacity>
           );
         }}

@@ -6,9 +6,9 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -29,5 +29,6 @@ module.exports = {
     'no-undef': 'off', // Turn off no-undef if necessary
     '@typescript-eslint/no-var-requires': 'off', // Turn off no-var-requires if using CommonJS
     '@typescript-eslint/no-unused-vars': ['warn', {argsIgnorePattern: '^_'}], // Customize as needed
+    'prettier.bracketSpacing': false,
   },
 };
